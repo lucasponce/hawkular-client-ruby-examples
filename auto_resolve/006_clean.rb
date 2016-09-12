@@ -6,6 +6,8 @@ options = {tenant: "hawkular"}
 
 client_alerts = Hawkular::Alerts::AlertsClient.new(entrypoint, credentials, options)
 
+client_alerts.delete_action("email", "notify-admin-users")
+
 def delete_trigger_alerts_and_events(client_alerts, trigger_id)
   client_alerts.delete_trigger(trigger_id)
   events = client_alerts.list_events({triggerIds: trigger_id})
@@ -21,3 +23,5 @@ def delete_trigger_alerts_and_events(client_alerts, trigger_id)
 end
 
 delete_trigger_alerts_and_events(client_alerts, "my-auto-resolve-trigger")
+
+
