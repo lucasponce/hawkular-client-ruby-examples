@@ -5,10 +5,8 @@ credentials = {username: "jdoe", password: "password"}
 options = {tenant: "hawkular"}
 
 client_alerts = Hawkular::Alerts::AlertsClient.new(entrypoint, credentials, options)
-client_metrics = Hawkular::Metrics::Client.new(entrypoint, credentials, options)
 
 triggers = client_alerts.list_triggers
-
 triggers.each do |t|
   puts "Trigger"
   p t
