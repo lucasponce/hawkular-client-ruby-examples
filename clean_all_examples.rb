@@ -22,3 +22,5 @@ end
 
 delete_trigger_alerts_and_events(client_alerts, "my-test-trigger")
 delete_trigger_alerts_and_events(client_alerts, "my-auto-resolve-trigger")
+
+client_alerts.delete_action("email", "notify-admin-users")
