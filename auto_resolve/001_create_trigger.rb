@@ -1,6 +1,6 @@
 require 'hawkular/hawkular_client'
 
-entrypoint = "http://localhost:8080/"
+entrypoint = "http://#{ENV['HAWKULAR_HOST'] || 'localhost'}:#{ENV['HAWKULAR_PORT'] || 8080}/"
 credentials = {username: "jdoe", password: "password"}
 options = {tenant: "hawkular"}
 
