@@ -16,6 +16,11 @@ triggers.each do |t|
   conditions.each do |c|
     p c
   end
+  dampenings = trigger.dampenings
+  puts "Dampenings"
+  dampenings.each do |d|
+    p d
+  end
   events = client_alerts.list_events({triggerIds: "#{t.id}"})
   puts "Events: #{events.length}"
   events.each do |e|
