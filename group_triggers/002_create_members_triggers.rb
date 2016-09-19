@@ -1,10 +1,6 @@
-require 'hawkular/hawkular_client'
+require './functions.rb'
 
-entrypoint = "http://#{ENV['HAWKULAR_HOST'] || 'localhost'}:#{ENV['HAWKULAR_PORT'] || 8080}/"
-credentials = {username: "jdoe", password: "password"}
-options = {tenant: "hawkular"}
-
-client_alerts = Hawkular::Alerts::AlertsClient.new(entrypoint, credentials, options)
+client_alerts = create_client.alerts
 
 member_trigger1 = ::Hawkular::Alerts::Trigger::GroupMemberInfo.new
 member_trigger1.group_id = "my-group-trigger"
