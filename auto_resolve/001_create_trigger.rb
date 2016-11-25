@@ -20,7 +20,8 @@ t.actions = [{"actionPlugin" => "email", "actionId" => "notify-admin-users"}]
 # A firing condition is used to detect a "bad situation"
 c1 = ::Hawkular::Alerts::Trigger::Condition.new({})
 c1.trigger_mode = :FIRING
-c1.data_id = "data-a"
+# hm_g_ is a namespace to indicate that data-x is a gauge metric
+c1.data_id = "hm_g_data-a"
 c1.type = :THRESHOLD
 c1.operator = :LT
 c1.threshold = 5
@@ -28,7 +29,8 @@ c1.threshold = 5
 # An autoresolve condition is used to detect when a "bad situation" has been resolved
 c2 = ::Hawkular::Alerts::Trigger::Condition.new({})
 c2.trigger_mode = :AUTORESOLVE
-c2.data_id = "data-a"
+# hm_g_ is a namespace to indicate that data-x is a gauge metric
+c2.data_id = "hm_g_data-a"
 c2.type = :THRESHOLD
 c2.operator = :GTE
 c2.threshold = 5
